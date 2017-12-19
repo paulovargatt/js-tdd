@@ -1,0 +1,19 @@
+{
+  "name": "js-tdd",
+  "version": "1.0.0",
+  "description": "Biblioteca curso JS-TDD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/paulovargatt/js-tdd.git)"
+  },
+  "keywords": [
+    "js",
+    "tdd"
+  ],
+  "author": "Paulo Vargatt <pvargatt@gmail.com> (https://vargatt.com/)",
+  "license": "MIT"
+}

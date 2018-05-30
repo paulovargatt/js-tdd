@@ -5,22 +5,23 @@
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepush": "npm run lint",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --watch"
   },
   "repository": {
     "type": "git",
     "url": "(https://github.com/paulovargatt/js-tdd.git)"
   },
-  "keywords": [
-    "js",
-    "tdd"
-  ],
+  "keywords": ["js", "tdd"],
   "author": "Paulo Vargatt <pvargatt@gmail.com> (https://vargatt.com/)",
   "license": "MIT",
   "devDependencies": {
+    "chai": "^4.1.2",
     "eslint": "^4.13.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "husky": "^0.14.3"
+    "husky": "^0.14.3",
+    "mocha": "^5.2.0"
   }
 }

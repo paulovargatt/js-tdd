@@ -1,17 +1,9 @@
-module.exports = {
-  sum: function(num1, num2) {
-    return num1 + num2;
-  },
+function FizzBuzz(num) {
+  if (num % 3 === 0 && num % 5 === 0) return "FizzBuzz";
+  if (num % 3 === 0) return "Fizz";
+  if (num % 5 === 0) return "Buzz";
 
-  mult: function(num1, num2) {
-    return num1 * num2;
-  },
+  return num;
+}
 
-  div: function(num1, num2) {
-    return num1 / num2;
-  },
-
-  sub: function(num1, num2) {
-    return num1 - num2;
-  }
-};
+export default FizzBuzz;

@@ -1,19 +1,48 @@
-import { expect } from "chai";
-import FizzBuzz from "../src/main";
+import chai, { expect } from "chai";
+import sinon from "sinon";
+import sinonChai from "sinon-chai";
+import sinonStubPromise from "sinon-stub-promise";
+chai.use(sinonChai);
+sinonStubPromise(sinon);
+global.fetch = require("node-fetch");
 
-describe("Main", () => {
+import {
+  search,
+  searchAlbuns,
+  searchArtists,
+  searchTracks,
+  searchPlaylists
+} from "../src/SpotWraper/main";
+
+describe("Spotify Wraper", () => {
   //smoke
-  it("Multiple of 3", function() {
-    expect(FizzBuzz(3)).to.be.equal("Fizz");
-    expect(FizzBuzz(6)).to.be.equal("Fizz");
+  describe("Smoke", () => {
+    it("should exists search method", () => {
+      expect(search).to.exist;
+    });
+
+    it("should exists searchArtists method", () => {
+      expect(searchArtists).to.exist;
+    });
+
+    it("should exists searchAlbuns method", () => {
+      expect(searchAlbuns).to.exist;
+    });
+
+    it("should exists searchTracks method", () => {
+      expect(searchTracks).to.exist;
+    });
+    it("should exists searchPlaylists method", () => {
+      expect(searchPlaylists).to.exist;
+    });
   });
 
-  it("Multiple of 5", function() {
-    expect(FizzBuzz(5)).to.be.equal("Buzz");
-    expect(FizzBuzz(10)).to.be.equal("Buzz");
-  });
+  describe("Generic Search", () => {
+    it("should call fetch function", () => {
+      const fetch = sinon.stub(global, "fetch");
+      const artists = search();
 
-  it("Multiple of 5 and 3", function() {
-    expect(FizzBuzz(15)).to.be.equal("FizzBuzz");
+      expect(fetch).to.have.been.calledOnce;
+    });
   });
 });
